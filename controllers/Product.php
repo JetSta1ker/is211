@@ -1,12 +1,36 @@
 <?php
+include("./services/FileStorage.php");
+include("./templates/ProductTemplate.php");
 
 class Product {
     public function get(int $id): string 
     {
-        return 'Вызван метод get() из класса Product';
+        $objStorage = new FileStorage();
+        $products = $objStorage->loadData('data.json');
+
+        foreach ($products as $product) {
+            if ($product['id'] == $id) {
+                $objTemplate = new ProductTemplate();
+                $template = $objTemplate->getPageTemplate( $product );
+                return $template;
+            }
+        }
+
+        /*$code = 404;  
+        $text = 'Not Found';  
+        $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+        header($protocol . ' ' . $code . ' ' . $text);*/
+        return '404';
     }
     public function getAll(): string
     {
-        return 'Вызван метод getAll() из класса Product';
+        $objStorage = new FileStorage();
+        $products = $objStorage->loadData('data.json');
+
+        $objTemplate = new ProductTemplate();
+        $template = $objTemplate->getTemplate( $products );
+
+        return $template;
     }
+
 }
