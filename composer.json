@@ -1,0 +1,15 @@
+{
+    "name": "pecherin/pc",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Coop Teh",
+            "email": "v.milevskiy@coopteh.ru"
+        }
+    ]
+
+  }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Видеокарта Palit GeForce RTX 4080 GameRock OC",
+    "description": "PCI-E 4.0 16 ГБ GDDR6X, 256 бит, 3 x DisplayPort, HDMI, GPU 2205 МГц",
+    "image": ".\/img\/png1.jpg",
+    "weigth": 2,
+    "price": 135499
+  },
+  {
+    "id": 2,
+    "name": "ПК ARDOR GAMING RAGE H331",
+    "description": "Intel Core i5-13400F, 6 x 2.5 ГГц, 32 ГБ DDR4, GeForce RTX 4070, SSD 1000 ГБ, без ОС",
+    "image": ".\/img\/png2.jpg",
+    "weigth": 15,
+    "price": 142499
+  },
+  {
+    "id": 3,
+    "name": "Видеокарта ASUS GeForce RTX 4090 ROG Strix OC Edition",
+    "description": "PCI-E 4.0 24 ГБ GDDR6X, 384 бит, 2 x HDMI, 3 x DisplayPort, GPU 2210 МГц",
+    "image": ".\/img\/png3.jpg",
+    "weigth": 2.5,
+    "price": 223999
+  }
+]
