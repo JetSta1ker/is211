@@ -1,4 +1,4 @@
-name: PHP_CI_BURGERKRIG
+name: PHP_CI_PCGALAXY
 
 on:
   push:
