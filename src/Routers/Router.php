@@ -1,6 +1,12 @@
 <?php
-include("./controllers/Product.php");
-include("./controllers/Order.php");
+
+namespace Routers;
+
+use Controllers\Product;
+use Controllers\Order;
+use Controllers\Home;
+use Controllers\Basket;
+
 
 class Router {
     public function route(string $url):string 
@@ -17,6 +23,8 @@ class Router {
             $id = intval($pieces[2]);
         }
         
+        $method = $_SERVER['REQUEST_METHOD'];
+
         $resource = $pieces[1];
         $html_result = "";
         switch ($resource) {
@@ -29,10 +37,26 @@ class Router {
                 break;
             case "orders":
                 $order = new Order();
-                $html_result = $order->create();
+                if ($method == "POST")
+                    $html_result = $order->create();
+                else 
+                    $html_result = $order->get();
+                break;
+            case "basket":
+                $basket = new Basket();
+                if ($method == "POST")
+                    $html_result = $basket->add();
+                break;   
+            case "basket_add":
+                $basket = new Basket();
+                if ($method == "POST")
+                    $html_result = $basket->clear();
                 break;
             default:
-                break;
+                $home = new Home();
+                $html_result = $home->get();
+                break;   
+            
         }
         
         return $html_result;

@@ -19,6 +19,7 @@ class ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf
         'P' => 
         array (
             'PhpParser\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'D' => 
         array (
@@ -35,10 +36,18 @@ class ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/src',
     );
 
     public static $classMap = array (
@@ -1248,6 +1257,7 @@ class ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInitb9eb650efb2d694f3f9735611aa7eacf::$classMap;
 
         }, null, ClassLoader::class);

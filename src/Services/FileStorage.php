@@ -1,11 +1,21 @@
 <?php
-include("./interfaces/FileStorageInterface.php");
+
+namespace Services;
+
+use Interfaces\FileStorageInterface;
 
 class FileStorage implements FileStorageInterface
 {
     public function saveData($nameFile, $arr)
     {
-        $json = json_encode($arr);
+        if (filesize($nameFile) > 0) {
+            $data = $this->loadData($nameFile);
+        } else
+            $data = [];
+        array_push($data, $arr);
+
+        $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        
         $handle = fopen($nameFile, "w");
         fwrite($handle, $json);
         fclose($handle);
